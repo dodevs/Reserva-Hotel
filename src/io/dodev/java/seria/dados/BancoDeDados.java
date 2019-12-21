@@ -13,14 +13,15 @@ public abstract class BancoDeDados {
     private String pasta;
     private LinkedList<String> arquivos = new LinkedList<>();
 
-    public BancoDeDados(String pasta, String tipo) throws IOException {
+    public BancoDeDados(String pasta, String tipo) {
         this.pasta = pasta;
         this.tipo = tipo;
 
         File file = new File(pasta);
         if( !file.exists()) {
-            if(!file.mkdir())
-                throw new IOException("Nao foi possivel criar o diretorio de dados");
+            file.mkdir();
+            file = new File(pasta + '/' + tipo);
+            if(!file.exists()) file.mkdir();
         }
     }
 
@@ -50,13 +51,13 @@ public abstract class BancoDeDados {
 
     public void salvaMeta() throws IOException {
 
-        File meta_f = new File((pasta + "meta.cfg"));
+        File meta_f = new File((pasta + '/' + "meta.cfg"));
 
         if(meta_f.exists()) {
             meta_f.delete();
         }
 
-        FileWriter meta = new FileWriter(pasta + "meta.cfg");
+        FileWriter meta = new FileWriter(pasta + '/' + "meta.cfg");
         PrintWriter meta_w = new PrintWriter(meta);
 
         meta_w.printf("%s%n", tipo);
@@ -68,7 +69,7 @@ public abstract class BancoDeDados {
     }
 
     public void carregaMeta() throws IOException {
-        File meta_f = new File(pasta+"meta.cfg");
+        File meta_f = new File(pasta + '/' +"meta.cfg");
 
         if(meta_f.exists()) {
             FileReader meta = new FileReader(meta_f);

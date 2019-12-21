@@ -16,10 +16,10 @@ public class CCUCadastrarReserva {
         String cpf_pessoa;
 
         Scanner ler = new Scanner(System.in);
-        System.in.read(); // Esvazia o buffer
 
         while (true) {
             ConsoleIO.cls();
+            ler.nextLine(); // esvazia o buffer do teclado
 
             System.out.println("Informe o cpf da pessoa, FIM para encerrar:\n");
             cpf_pessoa = ler.nextLine();
@@ -41,8 +41,6 @@ public class CCUCadastrarReserva {
             novaReserva.setEstadoReserva(EstadoReserva.ATIVA);
 
             baseDados.addReserva(novaReserva);
-
-            ler.nextLine(); // esvazia o buffer
         }
 
         baseDados.salvar();

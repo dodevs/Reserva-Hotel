@@ -15,7 +15,7 @@ public class CCUListaQuartos {
         Collection<Quarto> quartos = baseDados.getQuartos();
 
         ConsoleIO.cls();
-        System.in.read();
+        System.in.read(new byte[System.in.available()]);
 
         for (Quarto item : quartos) {
             System.out.printf("Andar: %d\n", item.getAndar());

@@ -15,10 +15,9 @@ public class CCUCadastraQuarto {
 
         Scanner ler = new Scanner(System.in);
 
-        System.in.read(); // Esvazia o buffer
-
         while(true) {
             ConsoleIO.cls();
+            ler.nextLine(); // esvazia o buffer do teclado
 
             System.out.printf("\nInforme o numero do quarto, FIM para encerrar:");
             String numero_str = ler.nextLine();
@@ -34,8 +33,6 @@ public class CCUCadastraQuarto {
 
             Quarto novoQuarto = new Quarto(andar, numero);
             baseDados.addQuarto(novoQuarto);
-
-            ler.nextLine(); // Esvazia o buffer
         }
 
         baseDados.salvar();

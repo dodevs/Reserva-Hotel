@@ -19,7 +19,7 @@ public class BdOBJ extends BancoDeDados {
         for(int i = 0; i < this.getArquivosSize(); i++) {
             String nomeArq = this.getArquivo(i);
 
-            File arq = new File(getPasta() + nomeArq);
+            File arq = new File(getPasta() + '/' + getTipo() + '/' + nomeArq);
 
             try {
                 if(arq.exists()) {
@@ -54,7 +54,7 @@ public class BdOBJ extends BancoDeDados {
 
         for (int i = 0; i < this.getArquivosSize(); i++) {
             String arq_name = this.getArquivo(i);
-            File arq = new File(getPasta() + arq_name);
+            File arq = new File(getPasta() + '/' + getTipo() + '/' + arq_name);
             try {
                 arq.delete();
                 arq.createNewFile();

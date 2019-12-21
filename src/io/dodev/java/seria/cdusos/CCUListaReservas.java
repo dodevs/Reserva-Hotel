@@ -13,7 +13,7 @@ public class CCUListaReservas {
         Collection<Reserva> reservas = baseDados.getReservas();
 
         ConsoleIO.cls();
-        System.in.read();
+        System.in.read(new byte[System.in.available()]);
 
         for (Reserva r: reservas) {
             System.out.printf("ID Reserva: %d\n", r.getId());

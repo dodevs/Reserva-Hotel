@@ -28,12 +28,15 @@ public class BaseDeDados {
     }
 
     /* IDS */
-    public long getLastId(String table) {
+    public long getNewId(String table) {
         if(this.hmIds.containsKey(table)) {
-            return this.hmIds.get(table);
+            return this.hmIds.get(table) + 1;
         } else {
             return 0;
         }
+    }
+    public void setLastId(String table, long id) {
+        this.hmIds.put(table, id);
     }
 
     /* Pessoa */
@@ -83,8 +86,9 @@ public class BaseDeDados {
         return reservas;
     }
     public void addReserva(Reserva r) {
-        long id = this.getLastId("hmReservas");
+        long id = this.getNewId("hmReservas");
         r.setId(id);
         this.hmReservas.put(id, r);
+        this.setLastId("hmReservas", id);
     }
 }

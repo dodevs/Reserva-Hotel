@@ -9,16 +9,12 @@ import java.util.Scanner;
 public class CCUCadastros {
 
     public static void executar(BaseDeDados baseDados) throws IOException {
-        ConsoleIO.cls();
-        Scanner ler = new Scanner(System.in);
+        char opcao = '*';
 
-        int opcao = 0;
+        while (opcao != '4') {
 
-        while (opcao != 4) {
-
-            while (ler.hasNextInt()) {
-                ler.nextInt();
-            }
+            ConsoleIO.cls();
+            System.in.read(new byte[System.in.available()]); // Clear buffer
 
             System.out.println("####### Cadastros #######");
 
@@ -30,18 +26,18 @@ public class CCUCadastros {
             System.out.println("Escolha uma das opcoes acima e tecle <ENTER>: ");
 
             switch (opcao) {
-                case 1:
+                case '1':
                     CCUCadastraQuarto.executar(baseDados);
                     break;
-                case 2:
+                case '2':
                     CCUCadastraPessoa.executar(baseDados);
                     break;
-                case 3:
+                case '3':
                     CCUCadastrarReserva.executar(baseDados);
                     break;
             }
 
-            opcao = ler.nextInt();
+            opcao = (char)System.in.read();
         }
     }
 }

@@ -12,7 +12,7 @@ public class CCUListaPessoas {
         Collection<Pessoa> pessoas = baseDados.getPessoas();
 
         ConsoleIO.cls();
-        System.in.read();
+        System.in.read(new byte[System.in.available()]);
 
         for(Pessoa item: pessoas) {
             System.out.printf("Nome.........: %s\n", item.getNome());

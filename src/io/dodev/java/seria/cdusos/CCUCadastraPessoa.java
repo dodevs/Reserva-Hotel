@@ -15,10 +15,10 @@ public class CCUCadastraPessoa {
         String nome, cpf;
 
         Scanner ler = new Scanner(System.in);
-        System.in.read(); // Esvazia o buffer
 
         while(true) {
             ConsoleIO.cls();
+            ler.nextLine(); // esvazia o buffer do teclado
 
             System.out.println("Cadastro de Pessoas\n");
             System.out.print("Informe o CPF:\n");
@@ -36,7 +36,6 @@ public class CCUCadastraPessoa {
             Pessoa novaPessoa = new Pessoa(cpf,nome);
             baseDados.addPessoa(novaPessoa);
 
-            ler.nextLine(); // esvazia o buffer do teclado
         }
 
         baseDados.salvar();
